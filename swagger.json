@@ -1,0 +1,449 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API devHouse",
+    "description": "API Rest feita com NodeJS e EXPRESS feita em arquitetura MVC, Validações com YUP, padronização do códigos com ESLINT e documentação com SWAGGER.",
+    "termsOfService": "http://localhost:3333/terms",
+    "contact":{
+      "email": "luigiffedele@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3333",
+      "description": "Servidor de desenvolvimento"
+    }
+  ],
+  "paths": {
+    "/sessions": {
+      "post": {
+        "summary": "Cadastro do usuário",
+        "description": "Rota responsável pelo cadastro do usuário utilizando o email",
+        "tags": ["Sessions"],
+        "requestBody":{
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Sessions"
+              },
+              "examples": {
+                "sessions":{
+                  "value":{
+                    "name": "luigi fedele",
+                    "email": "luigiffedele@gmail.com"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Falha na validação"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/houses": {
+      "post": {
+        "summary": "Cadastro de nova casa",
+        "description": "Rota responsável pelo cadastro de uma nova casa",
+        "tags": ["Houses"],
+        "requestBody":{
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Houses"
+              },
+              "examples": {
+                "houses":{
+                  "value":{
+                    "thumbnail": "WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727528526626.png",
+                    "description": "Apartamento cadastrada",
+                    "price": 700,
+                    "location": "Avenida 120, Bairro Legal",
+                    "status": true,
+                    "user": "66f71b18c59f30103e716528",
+                    "_id": "66f7fe4e1eb82fdc08be9e44",
+                    "__v": 0,
+                    "thumbnail_url": "http://localhost:3333/files/WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727528526626.png",
+                    "id": "66f7fe4e1eb82fdc08be9e44"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Falha na validação"
+          },
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "get": {
+        "summary": "Listagem das casa",
+        "description": "Rota responsável por listar todas as rotas através do status (true , false)",
+        "tags": ["Houses"],
+        "requestBody":{
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Houses"
+              },
+              "examples": {
+                "houses":{
+                  "value":{
+                    "thumbnail": "WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727528526626.png",
+                    "description": "Apartamento cadastrada",
+                    "price": 700,
+                    "location": "Avenida 120, Bairro Legal",
+                    "status": true,
+                    "user": "66f71b18c59f30103e716528",
+                    "_id": "66f7fe4e1eb82fdc08be9e44",
+                    "__v": 0,
+                    "thumbnail_url": "http://localhost:3333/files/WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727528526626.png",
+                    "id": "66f7fe4e1eb82fdc08be9e44"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Excluir casa",
+        "description": "Rota responsável por excluir a casa selecionada",
+        "tags": ["Houses"],
+        "requestBody":{
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Houses"
+              },
+              "examples": {
+                "houses":{
+                  "value":{
+                    "thumbnail": "WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727528526626.png",
+                    "description": "Apartamento cadastrada",
+                    "price": 700,
+                    "location": "Avenida 120, Bairro Legal",
+                    "status": true,
+                    "user": "66f71b18c59f30103e716528",
+                    "_id": "66f7fe4e1eb82fdc08be9e44",
+                    "__v": 0,
+                    "thumbnail_url": "http://localhost:3333/files/WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727528526626.png",
+                    "id": "66f7fe4e1eb82fdc08be9e44"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Excluida com sucesso"
+          },
+          "400": {
+            "description": "Falha na validação"
+          },
+          "401": {
+            "description": "Não autorizado"
+          }
+        }
+      }
+    },
+    "/houses/:house_id":{
+      "put": {
+        "summary": "Atualizar dados da casa",
+        "description": "Rota responsável por atualizar parametros da casa selecionada",
+        "tags": ["Houses"],
+        "requestBody":{
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Houses"
+              },
+              "examples": {
+                "houses":{
+                  "value":{
+                    "thumbnail": "WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727528526626.png",
+                    "description": "Apartamento cadastrada",
+                    "price": 700,
+                    "location": "Avenida 120, Bairro Legal",
+                    "status": true,
+                    "user": "66f71b18c59f30103e716528",
+                    "_id": "66f7fe4e1eb82fdc08be9e44",
+                    "__v": 0,
+                    "thumbnail_url": "http://localhost:3333/files/WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727528526626.png",
+                    "id": "66f7fe4e1eb82fdc08be9e44"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Falha na validação"
+          },
+          "401": {
+            "description": "Não autorizado"
+          }
+        }
+      }
+    },
+    "/houses/:house_id/reserve":{
+      "post": {
+        "summary": "Reservar casa",
+        "description": "Rota responsável por resevar a casa selecionada",
+        "tags": ["Houses"],
+        "requestBody":{
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Houses"
+              },
+              "examples": {
+                "houses":{
+                  "value":{
+                    "date": "28/09/2024",
+                    "user": {
+                        "_id": "66f7ff93709b0b501cfe490c",
+                        "email": "luigi@luigi.com",
+                        "__v": 0
+                    },
+                    "house": {
+                        "_id": "66f7259c6624d69d3f9afa79",
+                        "thumbnail": "WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727473052491.png",
+                        "description": "Apartamento Centro",
+                        "price": 1500,
+                        "location": "Avenida 120, Bairro Legal",
+                        "status": true,
+                        "user": "66f71b18c59f30103e716528",
+                        "__v": 0,
+                        "thumbnail_url": "http://localhost:3333/files/WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727473052491.png",
+                        "id": "66f7259c6624d69d3f9afa79"
+                    },
+                    "_id": "66f828c212af496b5f1be068",
+                    "__v": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Solicitação indisponivel"
+          },
+          "401": {
+            "description": "Reserva não permitida"
+          }
+        }
+      }
+    },
+    "/reserves":{
+      "get": {
+        "summary": "Listar todas as reservas",
+        "description": "Rota responsável por listar todas as reservas feita por usuário",
+        "tags": ["Reserves"],
+        "requestBody":{
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Houses"
+              },
+              "examples": {
+                "houses":{
+                  "value":{
+                    "_id": "66f7f749ddbb43aa005b9bcc",
+                    "date": "28/09/2024",
+                    "user": "66f71b18c59f30103e716528",
+                    "house": {
+                        "_id": "66f7259c6624d69d3f9afa79",
+                        "thumbnail": "WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727473052491.png",
+                        "description": "Apartamento Centro",
+                        "price": 1500,
+                        "location": "Avenida 120, Bairro Legal",
+                        "status": true,
+                        "user": "66f71b18c59f30103e716528",
+                        "__v": 0,
+                        "thumbnail_url": "http://localhost:3333/files/WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727473052491.png",
+                        "id": "66f7259c6624d69d3f9afa79"
+                    },
+                    "__v": 0
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+          }
+      }
+    },
+    "/reserves/cancel":{
+      "delete": {
+        "summary": "Excluir reserva",
+        "description": "Rota responsável por excluir as reservas feita por usuário",
+        "tags": ["Reserves"],
+        "requestBody":{
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Houses"
+              },
+              "examples": {
+                "houses":{
+                  "value":{
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Reserva excluida"
+          }
+          }
+      }
+    },
+    "/dashboard":{
+      "get": {
+        "summary": "Listar todas as casas dos usuários",
+        "description": "Rota responsável por listar todas as casa criada pelo usuário",
+        "tags": ["Dashboard"],
+        "requestBody":{
+          "content":{
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Houses"
+              },
+              "examples": {
+                "houses":{
+                  "value":{
+                    "houses": [
+                    {
+                        "_id": "66f7259c6624d69d3f9afa79",
+                        "thumbnail": "WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727473052491.png",
+                        "description": "Apartamento Centro",
+                        "price": 1500,
+                        "location": "Avenida 120, Bairro Legal",
+                        "status": true,
+                        "user": "66f71b18c59f30103e716528",
+                        "__v": 0,
+                        "thumbnail_url": "http://localhost:3333/files/WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727473052491.png",
+                        "id": "66f7259c6624d69d3f9afa79"
+                    },
+                    {
+                        "_id": "66f7f1d4292fc4d2a780010e",
+                        "thumbnail": "WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727525332618.png",
+                        "description": "Apartamento cadastrada",
+                        "price": 700,
+                        "location": "Avenida 120, Bairro Legal",
+                        "status": true,
+                        "user": "66f71b18c59f30103e716528",
+                        "__v": 0,
+                        "thumbnail_url": "http://localhost:3333/files/WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727525332618.png",
+                        "id": "66f7f1d4292fc4d2a780010e"
+                    },
+                    {
+                        "_id": "66f7fe4e1eb82fdc08be9e44",
+                        "thumbnail": "WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727528526626.png",
+                        "description": "Apartamento cadastrada",
+                        "price": 700,
+                        "location": "Avenida 120, Bairro Legal",
+                        "status": true,
+                        "user": "66f71b18c59f30103e716528",
+                        "__v": 0,
+                        "thumbnail_url": "http://localhost:3333/files/WhatsApp_Image_2024-02-17_at_13.27.32-removebg-1727528526626.png",
+                        "id": "66f7fe4e1eb82fdc08be9e44"
+                    }
+                  ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+          }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Sessions": {
+        "type": "object",
+        "properties": {
+          "name":{
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "Houses": {
+        "type": "object",
+        "properties": {
+          "thumbanil":{
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "location": {
+            "type": "string"
+          },
+          "status": {
+            "type": "bollean"
+          },
+          "user": {
+            "type": "string"
+          },
+          "_id": {
+            "type": "string"
+          },
+          "__v": {
+            "type": "number"
+          },
+          "thumbnail_url": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

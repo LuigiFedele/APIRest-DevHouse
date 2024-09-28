@@ -1,5 +1,7 @@
 import { Router } from 'express';
 import multer from 'multer';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from '../swagger.json';
 
 
 import uploadConfig from './config/upload';
@@ -11,6 +13,8 @@ import ReserveController from './controllers/ReserveController';
 
 const routes = new Router();
 const upload = multer(uploadConfig);
+
+routes.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //post
 routes.post('/sessions', SessionController.store);
