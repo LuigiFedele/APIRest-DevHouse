@@ -45,7 +45,7 @@ O propósito principal no desenvolvimento desse projeto foi demonstrar meu conhe
 ### Escolha das tecnologias:
 
 - Nodejs: aplicação feita inteira com o NodeJS.
-- Express: Esse Framework é um dos mais populares para o desenvolvimento de aplciativos wev com o Node.JS.
+- Express: Esse Framework é um dos mais populares para o desenvolvimento de aplicativos web com o Node.JS.
 - Yup: Foi utilizado para fazer validações nos requires.
 - Eslint: Padronização de código
 - MongoDB: Banco de dados não relacional
